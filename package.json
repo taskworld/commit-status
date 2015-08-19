@@ -1,0 +1,25 @@
+{
+  "name": "commit-status",
+  "version": "2.0.1",
+  "description": "Simple command-line application to post commit status to GitHub (for use in CI)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "commit-status": "./commit-status.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taskworld/commit-status.git"
+  },
+  "author": "Thai Pangsakulyanont <thai.p@taskworld.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taskworld/commit-status/issues"
+  },
+  "homepage": "https://github.com/taskworld/commit-status#readme",
+  "dependencies": {
+    "octokat": "^0.4.11"
+  }
+}
