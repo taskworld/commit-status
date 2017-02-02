@@ -21,5 +21,8 @@
   "homepage": "https://github.com/taskworld/commit-status#readme",
   "dependencies": {
     "octokat": "^0.4.11"
+  },
+  "devDependencies": {
+    "standard": "^8.6.0"
   }
 }
