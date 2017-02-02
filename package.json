@@ -4,7 +4,7 @@
   "description": "Simple command-line application to post commit status to GitHub (for use in CI)",
   "main": "index.js",
   "scripts": {
-    "test": "commit-status success meow 😻"
+    "test": "./commit-status.js success meow 😻"
   },
   "bin": {
     "commit-status": "./commit-status.js"
