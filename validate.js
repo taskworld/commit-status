@@ -8,11 +8,12 @@ module.exports = function validate () {
   }
 
   if (problems.length) {
-    console.error('Unable to run:')
-    problems.forEach(function (problem) {
-      console.error(' -', problem)
-    })
-    console.error('')
-    process.exit(1)
+    const lines = [ ]
+    const error = text => lines.push(text)
+    error('Unable to run:')
+    for (const problem of problems) {
+      error(` - ${problem}`)
+    }
+    throw new Error(lines.join('\n'))
   }
 }
