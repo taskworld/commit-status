@@ -42,7 +42,7 @@ Whenever you want to post a commit status from CI, invoke the command:
 commit-status <state> <context> <description> [<url>]
 ```
 
-- `state` — Either `success`, `error`, `failure`
+- `state` — Either `pending`, `success`, `error`, `failure`
 - `context` — “A string label to differentiate this status from the status of other systems.”
 - `description` — “A short description of the status.”
 - `url` — The URL to display.
