@@ -11,28 +11,41 @@ This is a perfect use case for GitHub’s commit status API.
 
 ## Usage
 
-### setup your GitHub token
+### Configure CI to expose GitHub access token
 
-Configure your CI to expose a `GH_STATUS_TOKEN` environment variable with your personal access token with `repo:status` scope.
-You can generate a token at https://github.com/settings/tokens/new.
+`commit-status` will look for GitHub access from these environment variables, in this order:
+
+- `GH_STATUS_TOKEN`
+- `GH_TOKEN`
+
+That token should have `repo:status` scope.
+
+You can create a bot account and obtain a token at https://github.com/settings/tokens/new.
 
 
-### install
+## CLI
 
-Inside your CI deps script, install `commit-status` there.
+### Install
+
+Inside your CI deps script, install `commit-status` there:
 
 ```
 npm install -g commit-status
 ```
 
 
-### post
+### Post commit status
 
 Whenever you want to post a commit status from CI, invoke the command:
 
 ```
 commit-status <state> <context> <description> [<url>]
 ```
+
+- `state` — Either `success`, `error`, `failure`
+- `context` — “A string label to differentiate this status from the status of other systems.”
+- `description` — “A short description of the status.”
+- `url` — The URL to display.
 
 Example CircleCI setup:
 
@@ -42,4 +55,16 @@ Example CircleCI setup:
       then commit-status success lint/eslint "Linting successful."
       else commit-status failure lint/eslint "There are lint errors."
       fi
+```
+
+## API
+
+```js
+const commitStatus = require('commit-status')
+
+commitStatus.post({
+  state: 'success',
+  context: 'lint/eslint',
+  description: 'Linting successful.'
+})
 ```
