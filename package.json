@@ -1,6 +1,6 @@
 {
   "name": "commit-status",
-  "version": "2.0.1",
+  "version": "4.0.0",
   "description": "Simple command-line application to post commit status to GitHub (for use in CI)",
   "main": "index.js",
   "scripts": {
