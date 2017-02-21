@@ -22,6 +22,13 @@ That token should have `repo:status` scope.
 
 You can create a bot account and obtain a token at https://github.com/settings/tokens/new.
 
+### Use with GitHub Enterprise
+
+If you use GitHub Enterprise, then you can override the API endpoint by `GITHUB_API` environment variable.
+
+```sh
+env GITHUB_API=https://[hostname]/api/v3 commit-message ...
+```
 
 ## CLI
 
