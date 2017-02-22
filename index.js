@@ -10,7 +10,8 @@ function post ({
   state,
   context,
   description,
-  url
+  url,
+  rootURL = process.env.GITHUB_API || undefined
 }) {
   var validStates = ['pending', 'success', 'error', 'failure']
 
@@ -28,7 +29,7 @@ function post ({
 
   const targetUrl = url
   var Octokat = require('octokat')
-  var octo = new Octokat({ token: token })
+  var octo = new Octokat({ token: token, rootURL: rootURL })
 
   return octo.repos(owner, repo).statuses(sha).create({
     state: state,
