@@ -4,9 +4,9 @@ exports.post = post
 
 function post ({
   token = process.env.GH_STATUS_TOKEN || process.env.GH_TOKEN,
-  sha = process.env.CIRCLE_SHA1 || process.env.TRAVIS_PULL_REQUEST_SHA || process.env.TRAVIS_COMMIT,
-  owner = process.env.CIRCLE_PROJECT_USERNAME || extractSlug(process.env.TRAVIS_REPO_SLUG, 0),
-  repo = process.env.CIRCLE_PROJECT_REPONAME || extractSlug(process.env.TRAVIS_REPO_SLUG, 1),
+  sha = process.env.CIRCLE_SHA1 || process.env.TRAVIS_PULL_REQUEST_SHA || process.env.TRAVIS_COMMIT || process.env.CI_COMMIT_ID,
+  owner = process.env.CIRCLE_PROJECT_USERNAME || extractSlug(process.env.TRAVIS_REPO_SLUG, 0) || extractSlug(process.env.CI_REPO_NAME, 0),
+  repo = process.env.CIRCLE_PROJECT_REPONAME || extractSlug(process.env.TRAVIS_REPO_SLUG, 1) || extractSlug(process.env.CI_REPO_NAME, 1),
   state,
   context,
   description,
