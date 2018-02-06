@@ -1,6 +1,7 @@
 # commit-status
 
 A simple CLI tool to post [commit statuses](https://developer.github.com/v3/repos/statuses/) to GitHub from CI.
+Supports CircleCI, Travis CI, and Codeship.
 
 
 ## About
