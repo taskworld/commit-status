@@ -1,12 +1,13 @@
 'use strict'
 const validate = require('./validate')
+const {GITHUB_TOKEN, BUILD_COMMIT, PROJECT_OWNER, PROJECT_NAME} = require('cross-ci').vars;
 exports.post = post
 
 function post ({
-  token = process.env.GH_STATUS_TOKEN || process.env.GH_TOKEN,
-  sha = process.env.CIRCLE_SHA1 || process.env.TRAVIS_PULL_REQUEST_SHA || process.env.TRAVIS_COMMIT || process.env.CI_COMMIT_ID,
-  owner = process.env.CIRCLE_PROJECT_USERNAME || extractSlug(process.env.TRAVIS_REPO_SLUG, 0) || extractSlug(process.env.CI_REPO_NAME, 0),
-  repo = process.env.CIRCLE_PROJECT_REPONAME || extractSlug(process.env.TRAVIS_REPO_SLUG, 1) || extractSlug(process.env.CI_REPO_NAME, 1),
+  token = GITHUB_TOKEN,
+  sha = BUILD_COMMIT,
+  owner = PROJECT_OWNER,
+  repo = PROJECT_NAME,
   state,
   context,
   description,
@@ -37,8 +38,4 @@ function post ({
     description: description,
     target_url: targetUrl || undefined
   })
-}
-
-function extractSlug (str, i) {
-  return str && str.split('/')[i]
 }

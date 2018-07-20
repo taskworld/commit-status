@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/taskworld/commit-status#readme",
   "dependencies": {
+    "cross-ci": "^1.4.0",
     "octokat": "^0.4.11"
   },
   "devDependencies": {
