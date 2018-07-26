@@ -18,6 +18,7 @@ This is a perfect use case for GitHub’s commit status API.
 
 - `GH_STATUS_TOKEN`
 - `GH_TOKEN`
+- `GITHUB_TOKEN`
 
 That token should have `repo:status` scope.
 
